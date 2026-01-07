@@ -88,14 +88,11 @@ R1(config)# Authorized Users Only! $
 
 ### Agregar un descripción a cada interfaz en el Router.
 
+> Este comando se aplica por interfaces, ejemplo.
+
 ```cisco
 R1(config)# interface g0/0
 R1(config-if)# description Connection to LAN-1
-```
-
-### Configuración de las interfaces con IPv4 y IPv6 activadas, descripción y en estado activado.
-
-```cisco
 ```
 
 ### Configurar el Router para no permitir el login al vty por 2 minutos si 3 intentos fallidos ocurrió en los últimos 60 segundos.
@@ -109,6 +106,36 @@ R1(config)# exit
 
 ```cisco
 R1# clock set hh:mm:ss day month year
+```
+
+# Configuración básica para las interfaces de un router cisco.
+
+### Configuración de las interfaces con IPv4 y <ins>IPv6</ins> activadas, descripción y en estado activado.
+
+> Ejemplo con las congiguraciones completas.
+
+```cisco
+R1(config)# interface g0/0
+R1(config-if)# ip address 192.168.0.1 255.255.255.0
+R1(config-if)# ipv6 address fe80::1 link-local
+R1(config-if)# ipv6 address 2001:db8:acad::1/64
+R1(config-if)# description Connection to LAN-1
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface g0/1
+R1(config-if)# ip address 192.168.1.1 255.255.255.0
+R1(config-if)# ipv6 address fe80::1 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:1::1/64
+R1(config-if)# description Connection to LAN-2
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# interface loopback0
+R1(config-if)# ip address 10.0.0.1 255.255.255.255
+R1(config-if)# ipv6 address fe80::1 link-local
+R1(config-if)# ipv6 address 2001:db8:acad:2::1/64
+R1(config-if)# description loopback adapter
+R1(config-if)# no shutdown
+R1(config-if)# exit
 ```
 
 ### Guardar las configuraciones.
