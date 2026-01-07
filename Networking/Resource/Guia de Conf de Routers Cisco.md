@@ -112,7 +112,7 @@ R1# clock set hh:mm:ss day month year
 
 ### Configuración de las interfaces con IPv4 y <ins>IPv6</ins> activadas, descripción y en estado activado.
 
-> Ejemplo con las congiguraciones completas.
+> Ejemplo con las configuraciones completas.
 
 ```cisco
 R1(config)# interface g0/0
